@@ -58,6 +58,12 @@ alias gsm="guix shell --manifest=manifest.scm" # Run project bill-of-materials
 # --network allows internet access for npm/pip
 alias gsc="guix shell --container --network --manifest=manifest.scm"
 
+# The Starlink Monitor
+alias st="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python"
+
+# The Quick Sync (To push your ricing changes to the cloud)
+alias dotsync="cd ~/dotfiles && git add . && git commit -m 'update rice' && git push"
+
 #xwallpaper --zoom $HOME/Pictures/Wallpapers/$WAL
 #vi mode
 bindkey -v
@@ -103,11 +109,21 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# Auto-start SSH Agent
+if [ -z "$SSH_AUTH_SOCK" ]; then
+   eval "$(ssh-agent -s)" > /dev/null
+   ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
+
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
 # Powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+#[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# Initialize the prompt system
+
+autoload -U promptinit; promptinit
+prompt pure
