@@ -21,6 +21,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # 1. Prioritize the latest 'guix' binary from 'guix pull'
 export PATH="$HOME/.config/guix/current/bin:$PATH"
 
+export PATH="$HOME/Documents/dotfiles/scripts:$PATH"
+
 # 2. Define and source the default user profile
 export GUIX_PROFILE="$HOME/.guix-profile"
 if [ -f "$GUIX_PROFILE/etc/profile" ]; then
