@@ -1,0 +1,72 @@
+# ~/.config/neomutt/neomuttrc
+
+# --- General Config ---
+set date_format="%y/%m/%d %I:%M%p"
+set index_format="%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set mailcap_path = ~/.config/neomutt/mailcap
+set markers = no
+set mailcap_path = ~/.config/neomutt/mailcap
+
+# --- Paths ---
+set header_cache = ~/.cache/neomutt/headers
+set message_cachedir = ~/.cache/neomutt/bodies
+
+# --- Sending ---
+set sendmail = "/usr/bin/msmtp"
+set use_from = yes
+set envelope_from = yes
+
+# --- Sidebar ---
+set sidebar_visible = yes
+set sidebar_width = 25
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+color sidebar_new green default
+
+# --- Keybindings (CLEANED) ---
+# Index (List) Navigation
+bind index j next-entry
+bind index k previous-entry
+bind index g noop        # <--- This silences the warning
+bind index gg first-entry
+bind index G last-entry
+bind index d delete-message
+bind index u undelete-message
+
+# Pager (Reading View) Navigation
+bind pager j next-line
+bind pager k previous-line
+bind pager g noop        # <--- This silences the warning
+bind pager gg top
+bind pager G bottom
+bind pager d delete-message
+bind pager u undelete-message
+
+# Sidebar Navigation
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+
+# --- Account Switching Macros ---
+macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/pdillo<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/phillipdillon<enter><change-folder>!<enter>'
+
+# --- Kitty & HTML ---
+auto_view text/html
+alternative_order text/plain text/html
+
+# Load Default Account
+source ~/.config/neomutt/accounts/pdillo
+
+auto_view image/jpeg image/png image/gif
+
+# --- Address Book (abook) ---
+# 1. Tell Mutt to use abook for querying
+set query_command = "abook --mutt-query '%s'"
+
+# 2. Bind 'A' to take the sender of the current email and add them to abook
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "Add sender to address book"
+alias pdillo Phillip Dillon <p@pdillo.com> # pdillo email

@@ -1,0 +1,8 @@
+set from = "p@pdillo.com"
+set realname = "Phillip Dillon"
+set folder = "~/.local/share/mail/pdillo"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+color status black cyan

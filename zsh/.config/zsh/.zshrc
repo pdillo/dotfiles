@@ -109,10 +109,11 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Auto-start SSH Agent
+# Clean up old agents and start fresh
 if [ -z "$SSH_AUTH_SOCK" ]; then
    eval "$(ssh-agent -s)" > /dev/null
-   ssh-add ~/.ssh/id_ed25519 2>/dev/null
+   ssh-add ~/.ssh/git_id 2>/dev/null
+   ssh-add ~/.ssh/pdillo_id 2>/dev/null
 fi
 
 # Load syntax highlighting; should be last.

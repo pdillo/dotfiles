@@ -1,0 +1,8 @@
+set from = "phillip@phillipdillon.com"
+set realname = "Phillip Dillon"
+set folder = "~/.local/share/mail/phillipdillon"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+color status black green

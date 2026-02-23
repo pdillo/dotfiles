@@ -1,0 +1,9 @@
+# HTML (Convert to text)
+text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
+
+# IMAGES (Kitty Graphics)
+# The "test" clause is removed to force it to try Kitty
+image/jpeg; kitty +kitten icat --transfer-mode=stream --stdin=no %s; output-to-terminal
+image/png;  kitty +kitten icat --transfer-mode=stream --stdin=no %s; output-to-terminal
+image/gif;  kitty +kitten icat --transfer-mode=stream --stdin=no %s; output-to-terminal
+image/webp; kitty +kitten icat --transfer-mode=stream --stdin=no %s; output-to-terminal
