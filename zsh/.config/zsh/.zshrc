@@ -62,7 +62,7 @@ alias gsc="guix shell --container --network --manifest=manifest.scm"
 alias st="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python"
 
 # The Quick Sync (To push your ricing changes to the cloud)
-alias dotsync="cd ~/dotfiles && git add . && git commit -m 'update rice' && git push"
+alias dotsync="cd ~/Documents/dotfiles && git add . && git commit -m 'update rice' && git push"
 
 #xwallpaper --zoom $HOME/Pictures/Wallpapers/$WAL
 #vi mode
