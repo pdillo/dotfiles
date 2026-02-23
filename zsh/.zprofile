@@ -5,7 +5,7 @@ export BROWSER="firefox"
 export MAIL="thunderbird"
 export FILE="ranger"
 export FILEGUI="nemo"
-export WAL="black_2025.png"
+export WAL="black_2026.png"
 
 #Env Vars
 export RANGER_LOAD_DEFAULT_RC=false
