@@ -1,0 +1,6 @@
+#!/bin/bash
+# Path to your vaulted nano-banana
+BANANA_DIR="$HOME/Documents/dotfiles/awesome-nanobanana-pro"
+
+# Run the app using the venv's python directly
+$BANANA_DIR/venv/bin/python $BANANA_DIR/main.py "$@"

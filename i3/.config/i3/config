@@ -28,8 +28,8 @@ exec --no-startup-id picom -b
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xwallpaper --zoom $HOME/Pictures/Wallpapers/$WAL
-exec --no-startup-id setxkbmap -option caps:escape
-exec --no-startup-id synclient TouchpadOff=1
+#exec_always --no-startup-id setxkbmap -option caps:escape
+#exec_always --no-startup-id synclient TouchpadOff=1
 exec --no-startup-id mpd
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
